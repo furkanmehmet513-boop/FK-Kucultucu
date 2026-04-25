@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>FK Küçült</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+    <div id="toast-container"></div>
+    <div id="overlay" class="overlay"></div>
+
+    <nav id="sidebar" class="sidebar">
+        <div class="sidebar-header">
+            <h2>FK Küçült</h2>
+            <button id="close-sidebar" class="icon-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="sidebar-menu">
+            <button class="menu-item active" data-view="home"><i class="fa-solid fa-home"></i> Ana Sayfa</button>
+            <button class="menu-item" data-view="pdf"><i class="fa-solid fa-file-pdf"></i> PDF Küçült</button>
+            <button class="menu-item" data-view="single-image"><i class="fa-solid fa-image"></i> Tekli Fotoğraf Küçült</button>
+            <button class="menu-item" data-view="multiple-images"><i class="fa-solid fa-images"></i> Çoklu Fotoğraf Küçült</button>
+        </div>
+    </nav>
+
+    <div id="app-container">
+        <header class="app-header">
+            <div class="header-left">
+                <button id="btn-menu" class="icon-btn"><i class="fa-solid fa-bars"></i></button>
+                <h1 id="view-title">FK Küçült</h1>
+            </div>
+        </header>
+
+        <main id="main-content">
+            <!-- Ana Sayfa -->
+            <div id="view-home" class="view active">
+                <div class="home-grid">
+                    <div class="home-card" data-target="pdf">
+                        <i class="fa-solid fa-file-pdf card-icon"></i>
+                        <h2>PDF Küçült</h2>
+                        <p>PDF dosyalarını sıkıştır, boyutunu azalt</p>
+                    </div>
+                    <div class="home-card" data-target="single-image">
+                        <i class="fa-solid fa-image card-icon"></i>
+                        <h2>Tekli Fotoğraf Küçült</h2>
+                        <p>Tek fotoğrafı kalite ayarıyla küçült</p>
+                    </div>
+                    <div class="home-card" data-target="multiple-images">
+                        <i class="fa-solid fa-images card-icon"></i>
+                        <h2>Çoklu Fotoğraf Küçült</h2>
+                        <p>Birden fazla fotoğrafı ZIP'le indir</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PDF Küçült -->
+            <div id="view-pdf" class="view">
+                <div class="tool-container" id="pdf-container"></div>
+            </div>
+
+            <!-- Tekli Fotoğraf Küçült -->
+            <div id="view-single-image" class="view">
+                <div class="tool-container" id="single-container"></div>
+            </div>
+
+            <!-- Çoklu Fotoğraf Küçült -->
+            <div id="view-multiple-images" class="view">
+                <div class="tool-container" id="multiple-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Harici Kütüphaneler -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf-lib/1.17.1/pdf-lib.min.js"></script>
+
+    <!-- Uygulama Modülleri -->
+    <script src="utils.js"></script>
+    <script src="ui.js"></script>
+    <script src="pdf-compress.js"></script>
+    <script src="single-image.js"></script>
+    <script src="multiple-images.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
